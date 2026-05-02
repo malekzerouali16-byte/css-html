@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>العد التنازلي للبيام 2026</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="bem_style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="flag-banner">
+        <span class="flag">🇩🇿</span>
+        <span class="flag-text">الجمهورية الجزائرية الديمقراطية الشعبية</span>
+        <span class="flag">🇩🇿</span>
+    </div>
+
+    <div class="bem-badge"><i class="fas fa-school" style="margin-left:7px;"></i>شهادة التعليم المتوسط — BEM</div>
+
+    <h1><i class="fas fa-award"></i> العد التنازلي للبيام</h1>
+    <p class="subtitle">دورة 2026 — وزارة التربية الوطنية</p>
+    <div class="exam-dates">
+        <i class="far fa-calendar-alt"></i>
+        من الثلاثاء 19 ماي إلى الخميس 21 ماي 2026
+    </div>
+
+    <!-- Info chips -->
+    <div class="info-strip">
+        <div class="info-chip">مدة الامتحان: <span>3 أيام</span></div>
+        <div class="info-chip">الديوان: <span>ONEC</span></div>
+        <div class="info-chip">الأيام المتبقية: <span id="daysOnly">—</span></div>
+    </div>
+
+    <!-- Countdown -->
+    <div class="countdown">
+        <div class="countdown-box">
+            <div class="countdown-value" id="days">00</div>
+            <div class="countdown-label">يوم</div>
+        </div>
+        <div class="countdown-box">
+            <div class="countdown-value" id="hours">00</div>
+            <div class="countdown-label">ساعة</div>
+        </div>
+        <div class="countdown-box">
+            <div class="countdown-value" id="minutes">00</div>
+            <div class="countdown-label">دقيقة</div>
+        </div>
+        <div class="countdown-box">
+            <div class="countdown-value" id="seconds">00</div>
+            <div class="countdown-label">ثانية</div>
+        </div>
+    </div>
+
+    <!-- Progress bar -->
+    <div class="progress-section">
+        <p class="progress-title">التقدم نحو يوم الامتحان (منذ بداية العام الدراسي)</p>
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div class="progress-text">
+            <span>سبتمبر 2025</span>
+            <span id="progressPercentage">0%</span>
+            <span>19 ماي 2026</span>
+        </div>
+    </div>
+
+    <!-- Motivation -->
+    <div class="motivation">
+        <i class="fas fa-quote-right" style="color:#3b82f6;margin-left:8px;"></i>
+        <span id="motivationText">المراجعة المنتظمة اليوم هي مفتاح نجاحك في البيام. نظّم وقتك وابدأ الآن!</span>
+    </div>
+
+    <!-- Subjects -->
+    <div class="subjects-title"><i class="fas fa-book-open" style="margin-left:6px;"></i>مواد الامتحان</div>
+    <div class="subjects-grid">
+        <span class="subject-tag">اللغة العربية</span>
+        <span class="subject-tag">الرياضيات</span>
+        <span class="subject-tag">اللغة الفرنسية</span>
+        <span class="subject-tag">اللغة الإنجليزية</span>
+        <span class="subject-tag">العلوم الطبيعية</span>
+        <span class="subject-tag">التربية الإسلامية</span>
+        <span class="subject-tag">التاريخ والجغرافيا</span>
+        <span class="subject-tag">التربية المدنية</span>
+    </div>
+
+    <div class="success-message" id="successMessage">
+        <i class="fas fa-star"></i>
+        بالتوفيق لجميع مترشحي شهادة التعليم المتوسط 2026 🏅
+        <i class="fas fa-star"></i>
+    </div>
+
+    <div class="footer">
+        <p><i class="fas fa-info-circle" style="margin-left:6px;"></i>
+            امتحان شهادة التعليم المتوسط دورة 2026 — عبر كامل التراب الوطني
+        </p>
+        <p>يتحدث تلقائياً كل ثانية &nbsp;|&nbsp; بالتوفيق لجميع المترشحين 🌟</p>
+    </div>
+</div>
+
+<div class="fireworks" id="fireworks"></div>
+
+<script>
+    const daysEl       = document.getElementById('days');
+    const hoursEl      = document.getElementById('hours');
+    const minutesEl    = document.getElementById('minutes');
+    const secondsEl    = document.getElementById('seconds');
+    const progressBar  = document.getElementById('progressBar');
+    const progressPct  = document.getElementById('progressPercentage');
+    const successMsg   = document.getElementById('successMessage');
+    const fireworksEl  = document.getElementById('fireworks');
+    const daysOnly     = document.getElementById('daysOnly');
+    const motivText    = document.getElementById('motivationText');
+
+    const BEM_DATE     = new Date('2026-05-19T08:00:00+01:00');
+    const SCHOOL_START = new Date('2025-09-01T00:00:00+01:00');
+
+    const motivations = [
+        "المراجعة المنتظمة اليوم هي مفتاح نجاحك في البيام. نظّم وقتك وابدأ الآن!",
+        "كل ساعة دراسة الآن تعني درجة إضافية في الامتحان. لا تضيّع وقتك!",
+        "أنت على بُعد خطوات من شهادة التعليم المتوسط. تمسّك بحلمك!",
+        "المراجعة في الأسابيع الأخيرة هي الأهم — ركّز على الأسئلة السابقة!",
+        "الأيام الأخيرة قبل الامتحان: راجع، نَم جيداً، واثق بنفسك!",
+        "غداً الامتحان — كل ما عليك الآن هو الراحة والثقة بنفسك. أنت جاهز!",
+        "اليوم الكبير حان! تنفّس بعمق واكتب بثقة. بالتوفيق 🏅",
+    ];
+
+    function pickMotivation(d) {
+        if (d > 60)  return motivations[0];
+        if (d > 30)  return motivations[1];
+        if (d > 14)  return motivations[2];
+        if (d > 7)   return motivations[3];
+        if (d > 1)   return motivations[4];
+        if (d === 1) return motivations[5];
+        return motivations[6];
+    }
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+
+    function updateCountdown() {
+        const now  = new Date();
+        const diff = BEM_DATE - now;
+
+        if (diff <= 0) {
+            daysEl.textContent = hoursEl.textContent =
+            minutesEl.textContent = secondsEl.textContent = '00';
+            progressBar.style.width = '100%';
+            progressPct.textContent = '100%';
+            successMsg.style.display = 'block';
+            motivText.textContent = "اليوم الكبير حان! بالتوفيق لجميع مترشحي البيام 2026 🏅";
+            createFireworks();
+            return;
+        }
+
+        const totalSec = Math.floor(diff / 1000);
+        const d = Math.floor(totalSec / 86400);
+        const h = Math.floor((totalSec % 86400) / 3600);
+        const m = Math.floor((totalSec % 3600) / 60);
+        const s = totalSec % 60;
+
+        daysEl.textContent    = pad(d);
+        hoursEl.textContent   = pad(h);
+        minutesEl.textContent = pad(m);
+        secondsEl.textContent = pad(s);
+        daysOnly.textContent  = d + ' يوم';
+
+        const totalSpan = BEM_DATE - SCHOOL_START;
+        const elapsed   = now - SCHOOL_START;
+        const pct = Math.min(100, Math.max(0, (elapsed / totalSpan * 100).toFixed(1)));
+        progressBar.style.width = pct + '%';
+        progressPct.textContent = pct + '%';
+
+        motivText.textContent = pickMotivation(d);
+
+        if (d === 0) {
+            successMsg.style.display = 'block';
+            if (h < 2) createFireworks();
+        } else {
+            successMsg.style.display = 'none';
+        }
+    }
+
+    function createFireworks() {
+        fireworksEl.innerHTML = '';
+        const colors = ['#60a5fa','#fbbf24','#f87171','#a78bfa','#34d399','#fb923c'];
+        for (let i = 0; i < 20; i++) {
+            const fw    = document.createElement('div');
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            const size  = Math.random() * 10 + 5;
+            fw.style.cssText = `position:absolute;left:${Math.random()*100}%;top:${Math.random()*100}%;
+                width:${size}px;height:${size}px;background:${color};border-radius:50%;
+                box-shadow:0 0 18px ${color};animation:fwAnim 1.1s ease-out forwards;`;
+            fw.style.setProperty('--mx', (Math.random()-0.5)*130+'px');
+            fw.style.setProperty('--my', (Math.random()-0.5)*130+'px');
+            fireworksEl.appendChild(fw);
+            setTimeout(() => fw.remove(), 1100);
+        }
+        if (!document.getElementById('fw-style')) {
+            const s = document.createElement('style');
+            s.id = 'fw-style';
+            s.textContent = `@keyframes fwAnim {
+                0%   { transform:translate(0,0) scale(1); opacity:1; }
+                100% { transform:translate(var(--mx),var(--my)) scale(0); opacity:0; }
+            }`;
+            document.head.appendChild(s);
+        }
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+</script>
+</body>
+</html>

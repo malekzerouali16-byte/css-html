@@ -1,0 +1,290 @@
+/* ============================================
+   العد التنازلي للبيام 2026 — bem_style.css
+   ============================================ */
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Body */
+body {
+    background: linear-gradient(135deg, #0c2461, #1a3a6b, #2563a8);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Container */
+.container {
+    background-color: rgba(0, 0, 0, 0.70);
+    border-radius: 20px;
+    padding: 40px 30px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    max-width: 900px;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ---- Flag Banner ---- */
+.flag-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.flag {
+    font-size: 2.4rem;
+    line-height: 1;
+}
+
+.flag-text {
+    font-size: 1.05rem;
+    color: #bfdbfe;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+/* ---- BEM Badge ---- */
+.bem-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #1d4ed8, #2563eb);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    padding: 5px 20px;
+    font-size: 0.95rem;
+    color: #bfdbfe;
+    margin-bottom: 14px;
+    letter-spacing: 1px;
+}
+
+/* ---- Headings ---- */
+h1 {
+    font-size: 2.6rem;
+    margin-bottom: 8px;
+    background: linear-gradient(to right, #93c5fd, #60a5fa, #fbbf24);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #dbeafe;
+    margin-bottom: 6px;
+}
+
+/* ---- Exam Dates ---- */
+.exam-dates {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    padding: 8px 22px;
+    font-size: 1.05rem;
+    color: #93c5fd;
+    margin-bottom: 32px;
+    letter-spacing: 0.5px;
+}
+
+.exam-dates i {
+    margin-left: 8px;
+    color: #60a5fa;
+}
+
+/* ---- Info Strip ---- */
+.info-strip {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+}
+
+.info-chip {
+    background: rgba(37, 99, 168, 0.25);
+    border: 1px solid rgba(96, 165, 250, 0.3);
+    border-radius: 8px;
+    padding: 7px 14px;
+    font-size: 0.92rem;
+    color: #93c5fd;
+}
+
+.info-chip span {
+    font-weight: 700;
+    color: #fbbf24;
+    margin-right: 4px;
+}
+
+/* ---- Countdown ---- */
+.countdown {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-bottom: 44px;
+}
+
+.countdown-box {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
+    border-radius: 15px;
+    padding: 24px 14px;
+    min-width: 145px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    transition: transform 0.3s ease;
+}
+
+.countdown-box:hover {
+    transform: translateY(-8px);
+}
+
+.countdown-value {
+    font-size: 3.4rem;
+    font-weight: 800;
+    color: #fbbf24;
+    text-shadow: 0 0 15px rgba(251, 191, 36, 0.4);
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.countdown-label {
+    font-size: 1.05rem;
+    color: #dbeafe;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ---- Progress ---- */
+.progress-section {
+    margin: 10px 0 34px;
+}
+
+.progress-title {
+    font-size: 0.92rem;
+    color: #93c5fd;
+    margin-bottom: 10px;
+}
+
+.progress-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    height: 18px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #1e3a8a, #3b82f6, #fbbf24);
+    width: 0%;
+    transition: width 1s ease;
+    border-radius: 10px;
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: #93c5fd;
+}
+
+/* ---- Motivation ---- */
+.motivation {
+    background: rgba(255, 255, 255, 0.05);
+    border-right: 4px solid #3b82f6;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 10px 0 28px;
+    font-size: 1.02rem;
+    color: #dbeafe;
+    line-height: 1.7;
+    text-align: right;
+}
+
+/* ---- Subjects ---- */
+.subjects-title {
+    font-size: 0.92rem;
+    color: #93c5fd;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.subjects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.subject-tag {
+    background: rgba(37, 99, 168, 0.2);
+    border: 1px solid rgba(96, 165, 250, 0.25);
+    border-radius: 6px;
+    padding: 5px 13px;
+    font-size: 0.88rem;
+    color: #bfdbfe;
+}
+
+/* ---- Success Message ---- */
+.success-message {
+    font-size: 1.4rem;
+    color: #fbbf24;
+    margin-top: 26px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    display: none;
+}
+
+/* ---- Fireworks overlay ---- */
+.fireworks {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.7;
+}
+
+/* ---- Footer ---- */
+.footer {
+    margin-top: 34px;
+    color: #60a5fa;
+    font-size: 0.9rem;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    line-height: 1.9;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+    h1                { font-size: 2rem; }
+    .countdown-box    { min-width: 115px; padding: 18px 8px; }
+    .countdown-value  { font-size: 2.6rem; }
+    .container        { padding: 26px 14px; }
+}
+
+@media (max-width: 480px) {
+    .countdown        { gap: 10px; }
+    .countdown-box    { min-width: 76px; padding: 13px 4px; }
+    .countdown-value  { font-size: 2rem; }
+    .countdown-label  { font-size: 0.78rem; }
+    h1                { font-size: 1.55rem; }
+}
